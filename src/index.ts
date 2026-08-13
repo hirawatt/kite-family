@@ -192,8 +192,8 @@ const port = Number(process.env.PORT) || 3000;
 if (typeof process !== 'undefined' && process.release?.name === 'node') {
   startNodeCronDaemon();
   const foundAccounts = getAccountConfigs();
-  console.log(`🚀 Family Holdings server starting on http://localhost:${port}`);
-  console.log(`📋 Found ${foundAccounts.length} configured account(s) in environment.`);
+  console.log(`[Server] Family Holdings server starting on http://localhost:${port}`);
+  console.log(`[Config] Found ${foundAccounts.length} configured account(s) in environment.`);
   foundAccounts.forEach(a => console.log(`   - ${a.label} (${a.userId}) [API Key: ${a.apiKey.slice(0, 4)}...]`));
   serve({
     fetch: app.fetch,

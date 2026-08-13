@@ -21,7 +21,7 @@ Each family member's Zerodha account requires its own **Kite Connect Personal Ap
 | Field Name | Value to Enter | Explanation |
 |---|---|---|
 | **Type** | **Personal** (Free) | Select the middle radio button (`Personal / Free`). This grants full portfolio read access without monthly API fees. |
-| **App name** | `Family Holdings - Dad` | Give a descriptive name for each member (e.g., `Family Holdings - Mom`, `Family Holdings - Self`). |
+| **App name** | `Family Holdings - Self` | Give a descriptive name for each member (e.g., `Family Holdings - Spouse`, `Family Holdings - Self`). |
 | **Zerodha Client ID** | `AB1234` | Enter the **Zerodha User ID** of the account owner (e.g., `AB1234`). |
 | **App icon** | *(Optional)* | Leave empty or upload any square icon. |
 | **Redirect URL** | `http://127.0.0.1:3000/api/auth/callback` | For local testing set `http://127.0.0.1:3000/api/auth/callback`. For production, set `https://your-domain.com/api/auth/callback`. |
@@ -73,7 +73,7 @@ Edit `.env` with your actual account credentials:
 ```bash
 DASHBOARD_PASSWORD="admin"
 
-ACCOUNT_1_LABEL="Dad"
+ACCOUNT_1_LABEL="Self"
 ACCOUNT_1_USER_ID="AB1234"
 ACCOUNT_1_PASSWORD="zerodha_password"
 ACCOUNT_1_TOTP_SECRET="JBSWY3DPEHPK3PXP"
@@ -95,7 +95,7 @@ npm run dev
 ```
 
 You will see:
-`🚀 Family Holdings server starting on http://localhost:3000`
+`[Server] Family Holdings server starting on http://localhost:3000`
 
 ---
 
@@ -116,8 +116,8 @@ You will see:
 
 4. **Test Account Status & Re-Authentication**:
    - Look at the **ACCOUNTS** status bar at the top of the dashboard.
-   - Green dot (🟢) indicates the token is active.
-   - Click **⚡ Re-Authenticate Accounts** to manually test running the HTTP 2FA handshake for all accounts.
+   - Active status pill indicates the token is active.
+   - Click **Re-Auth Accounts** to manually test running the HTTP 2FA handshake for all accounts.
 
 5. **Test Local Docker Build**:
    ```bash
@@ -264,7 +264,7 @@ npx wrangler deploy
 
 ---
 
-## 🔒 Security Best Practices
+## Security Best Practices
 
 1. **Keep Secrets Secret**: Never commit `.env` or plain-text Zerodha passwords to public Git repositories.
 2. **Coolify Encryption**: Coolify automatically encrypts environment variables stored in its database.
